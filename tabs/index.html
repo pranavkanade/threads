@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Tabs</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./main.css" />
+  </head>
+  <body>
+    <h1 class="title">Tabs</h1>
+
+    <div class="tabs">
+      <div class="tab tab-selected" id="tab1" onclick="onTabClicked(this.id)">
+        <div class="hidden"></div>
+        <div class="tab-main">Tab 1</div>
+      </div>
+      <div class="tab" id="tab2" onclick="onTabClicked(this.id)">
+        <div class="hidden"></div>
+        <div class="tab-main">Tab 2</div>
+      </div>
+      <div class="tab" id="tab3" onclick="onTabClicked(this.id)">
+        <div class="hidden"></div>
+        <div class="tab-main">Tab 3</div>
+      </div>
+      <div class="tab" id="tab4" onclick="onTabClicked(this.id)">
+        <div class="hidden"></div>
+        <div class="tab-main">Tab 4</div>
+      </div>
+    </div>
+    <div class="content">
+      Content
+    </div>
+    <script>
+      function sanitize() {
+        var tabList = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabList.length; i++) {
+          tabList[i].classList.remove("tab-selected");
+        }
+      }
+
+      function onTabClicked(tabId) {
+        console.log("selected : ", tabId);
+        sanitize();
+        var selectedTab = document.getElementById(tabId);
+        selectedTab.classList.add("tab-selected");
+      }
+
+      // console.log("tab list : ", tabList);
+    </script>
+  </body>
+</html>
